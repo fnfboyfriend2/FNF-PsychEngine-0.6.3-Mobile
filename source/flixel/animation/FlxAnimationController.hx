@@ -950,6 +950,6 @@ class FlxAnimationController implements IFlxDestroyable
 	 */
 	public inline function getFrameIndex(frame:FlxFrame):Int
 	{
-		return _sprite.frames.frames.indexOf(Frame);
+		return _sprite.frames.frames.indexOf(frame);
 	}
 }
