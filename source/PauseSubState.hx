@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package;
 
 import Controls.Control;
@@ -780,4 +779,3 @@ class PauseSubState extends MusicBeatSubstate
 		skipTimeText.text = FlxStringUtil.formatTime(Math.max(0, Math.floor(curTime / 1000)), false) + ' / ' + FlxStringUtil.formatTime(Math.max(0, Math.floor(FlxG.sound.music.length / 1000)), false);
 	}
 }
->>>>>>> 4e7a8a543e721a555405bc00c188ab943ccd86f0
