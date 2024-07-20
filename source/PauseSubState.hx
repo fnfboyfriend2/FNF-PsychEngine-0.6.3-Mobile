@@ -52,7 +52,6 @@ class PauseSubState extends MusicBeatSubstate
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
 			menuItemsOG.insert(5 + num, 'Toggle Botplay');
 		}
-		if (mobile.MobileControls.enabled) menuItemsOG.insert(2, 'Chart Editor');
 		menuItems = menuItemsOG;
 
 		for (i in 0...CoolUtil.difficulties.length) {
@@ -231,8 +230,6 @@ class PauseSubState extends MusicBeatSubstate
 				case "Leave Charting Mode":
 					restartSong();
 					PlayState.chartingMode = false;
-				case 'Chart Editor':
-					PlayState.instance.openChartEditor();
 				case 'Skip Time':
 					if(curTime < Conductor.songPosition)
 					{
