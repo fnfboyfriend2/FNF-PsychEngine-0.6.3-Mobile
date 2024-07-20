@@ -436,7 +436,7 @@ class FlxAnimationController implements IFlxDestroyable
 	function findSpriteFrame(Prefix:String, Index:Int, Postfix:String):Int
 	{
 		var numFrames:Int = frames;
-		var flxFrames:Array<FlxFrame> = _sprite.frames.frames;
+		var flxFrames:Array<FlxFrame> = _sprite._frames.frames;
 		for (i in 0...numFrames)
 		{
 			var name:String = flxFrames[i].name;
@@ -672,9 +672,9 @@ class FlxAnimationController implements IFlxDestroyable
 	{
 		for (frameName in FrameNames)
 		{
-			if (_sprite.frames.framesHash.exists(frameName))
+			if (_sprite._frames.framesHash.exists(frameName))
 			{
-				var frameToAdd:FlxFrame = _sprite.frames.framesHash.get(frameName);
+				var frameToAdd:FlxFrame = _sprite._frames.framesHash.get(frameName);
 				AddTo.push(getFrameIndex(frameToAdd));
 			}
 		}
@@ -685,9 +685,9 @@ class FlxAnimationController implements IFlxDestroyable
 		for (index in Indices)
 		{
 			var name:String = Prefix + index + Postfix;
-			if (_sprite.frames.framesHash.exists(name))
+			if (_sprite._frames.framesHash.exists(name))
 			{
-				var frameToAdd:FlxFrame = _sprite.frames.framesHash.get(name);
+				var frameToAdd:FlxFrame = _sprite._frames.framesHash.get(name);
 				AddTo.push(getFrameIndex(frameToAdd));
 			}
 		}
@@ -720,7 +720,7 @@ class FlxAnimationController implements IFlxDestroyable
 
 	function findByPrefix(AnimFrames:Array<FlxFrame>, Prefix:String):Void
 	{
-		for (frame in _sprite.frames.frames)
+		for (frame in _sprite._frames.frames)
 		{
 			if (frame.name != null && StringTools.startsWith(frame.name, Prefix))
 			{
@@ -734,7 +734,7 @@ class FlxAnimationController implements IFlxDestroyable
 		if (_sprite.frames != null && frames > 0)
 		{
 			Frame = Frame % frames;
-			_sprite.frame = _sprite.frames.frames[Frame];
+			_sprite.frame = _sprite._frames.frames[Frame];
 			frameIndex = Frame;
 			fireCallback();
 		}
@@ -749,7 +749,7 @@ class FlxAnimationController implements IFlxDestroyable
 
 	function set_frameName(Value:String):String
 	{
-		if (_sprite.frames != null && _sprite.frames.framesHash.exists(Value))
+		if (_sprite.frames != null && _sprite._frames.framesHash.exists(Value))
 		{
 			if (_curAnim != null)
 			{
@@ -757,7 +757,7 @@ class FlxAnimationController implements IFlxDestroyable
 				_curAnim = null;
 			}
 
-			var frame = _sprite.frames.framesHash.get(Value);
+			var frame = _sprite._frames.framesHash.get(Value);
 			if (frame != null)
 			{
 				frameIndex = getFrameIndex(frame);
@@ -863,6 +863,6 @@ class FlxAnimationController implements IFlxDestroyable
 	 */
 	public inline function getFrameIndex(Frame:FlxFrame):Int
 	{
-		return _sprite.frames.frames.indexOf(Frame);
+		return _sprite._frames.frames.indexOf(Frame);
 	}
 }
