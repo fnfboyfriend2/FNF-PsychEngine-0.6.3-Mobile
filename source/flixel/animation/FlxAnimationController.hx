@@ -737,7 +737,7 @@ class FlxAnimationController implements IFlxDestroyable
 
 	function findByPrefix(AnimFrames:Array<FlxFrame>, Prefix:String):Void
 	{
-		for (frame in _sprite._frames.frames)
+		for (frame in _sprite.frames.frames)
 		{
 			if (frame.name != null && StringTools.startsWith(frame.name, Prefix))
 			{
@@ -950,6 +950,6 @@ class FlxAnimationController implements IFlxDestroyable
 	 */
 	public inline function getFrameIndex(frame:FlxFrame):Int
 	{
-		return _sprite._frames.frames.indexOf(Frame);
+		return _sprite.frames.frames.indexOf(Frame);
 	}
 }
